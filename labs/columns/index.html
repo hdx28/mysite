@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta charset="utf-8"/>
+<title>Site Title</title>
+<link rel="stylesheet" href="css/toast.css"/>
+<link rel="stylesheet" href="style.css"/>
+<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<script src="../../wp-content/themes/newyork/js/google-code-prettify/prettify.js"></script>
+</head>
+<body class="container" onload="prettyPrint();">
+<header class="row">
+<h1 class="col_12">
+Faux borders & columns
+</h1>
+<em class="col_12">This page is demonstrating a few techniques, with advantages and disadvantages, for creating columns & bordered elements without breaking a layout grid. The techniques outlined should work in all the common frameworks.</em>
+</header>
+<div id="demo-one" class="row">
+<div class="col_9">
+<h2>Example one</h2>
+<p>This first example uses a background image that's ridiculously wide and has 2 'columns'. The divide between the columns is calculated based on the width of the page, and is positioned accordingly.</p>
+<p>I don't do a very good job of detailing this, so I'll leave it to the pros. This technique was originally crafted by <a href="http://www.alistapart.com/articles/fauxcolumns/">Dan Cederholm</a>.</p>
+<h4>The CSS</h4>
+<pre class="prettyprint">#demo-one {
+	background: url(background.png) repeat-y 74% top;
+}</pre>
+<h4>Advantages</h4>
+<ul>
+<li>Minimal markup & CSS</li>
+<li>Fully compatible</li>
+<li>Flexible</li>
+<li>Spans the full height of the container</li>
+</ul>
+<h4>Disadvantages</h4>
+<ul>
+<li>Scales strangely at very narrow widths</li>
+<li>To change colors, you have to create a new image</li>
+<li>Fails if the user just wants to have one column without changing classes etc</li>
+</ul>
+<p><strong>Works in:</strong> <em>all the things</em>.</p>
+</div>
+<div class="col_3">
+<h3>Example sidebar</h3>
+<p>Lorem ipsum whatever. Y'all gonna pay for that?</p>
+</div>
+</div>
+<hr>
+<div id="demo-two" class="row">
+<div class="col_9">
+<h2>Example two</h2>
+<p>This example is for borders, but can be used for columns similar to <a href="#demo-one">example one</a>. By using 2 <code>box-shadow</code> rules, you can emulate a border divide between the columns without using padding or real borders, which would break the grid.</p>
+<h4>The CSS</h4>
+<pre class="prettyprint">#demo-two .col_3 {
+	-webkit-box-shadow: -23px 0 0 #fff, -24px 0 0 #bbb;
+	-moz-box-shadow: -23px 0 0 #fff, -24px 0 0 #bbb;
+	-o-box-shadow: -23px 0 0 #fff, -24px 0 0 #bbb;
+	box-shadow: -23px 0 0 #fff, -24px 0 0 #bbb;
+}</pre>
+<h4>Advantages</h4>
+<ul>
+<li>No images</li>
+<li>Colors are easily adjusted</li>
+</ul>
+<h4>Disadvantages</h4>
+<ul>
+<li>Not fully compatible</li>
+<li>Doesn't span the height of the container</li>
+<li>The primary box-shadow must always match the background color of the page. Not a fun task to maintain</li>
+<li>Breaks on non-fixed widths. You have to set the shadow distances in an absolute unit - in fact, the column will overlap the content in smaller sizes on this example</li>
+</ul>
+<p><strong>Works in:</strong> <em>browsers with support for <code>box-shadow</code></em>.</p>
+</div>
+<div class="col_3">
+<h3>Example sidebar</h3>
+<p>Lorem ipsum whatever. Y'all gonna pay for that?</p>
+<p>Hover to turn into a column like example one.</a>
+</div>
+</div>
+<hr>
+<div id="demo-three" class="row">
+<div class="col_9">
+<h2>Example three</h2>
+<p>The final (and probably my favorite) example uses the <code>:before</code> pseudo element to create a border. It just makes a 1px wide element, pulled back by 10% of the column width, thne given a z-index of -1 to prevent overlap.</p>
+<h4>The CSS</h4>
+<pre class="prettyprint">#demo-three {
+	position: relative;
+}
+
+#demo-three:before {
+	content: ".";
+	height: 100%;
+	display: block;
+	position: absolute;
+	width: 1px;
+	background: #bbb;
+	text-indent: -9999px;
+	left: 76.5%;
+	top: 0;
+	z-index: -1;
+}</pre>
+<h4>Advantages</h4>
+<ul>
+<li>Great browser support</li>
+<li>Colors are easily adjusted</li>
+<li>Flexible - supports percentage based values, so it plays nicely with the grid</li>
+<li>Transparent background means no faffing around with matching up colors</li>
+</ul>
+<h4>Disadvantages</h4>
+<ul>
+<li>Not fully compatible</li>
+<li>Doesn't span the height of the container</li>
+<li>Can be a <em>little</em> funny at narrow widths, but still pretty good</li>
+</ul>
+<p><strong>Works in:</strong> <em>browsers with support for <code>:before</code> - which is all of them, apart from IE7 and below</em>.</p>
+</div>
+<div class="col_3">
+<h3>Example sidebar</h3>
+<p>Lorem ipsum whatever. Y'all gonna pay for that?</p>
+</div>
+</div>
+<footer class="row">
+<div class="col_12">
+<strong>A thing by <a href="http://harshitsaxena.in">Harshit Saxena</a>.</strong>
+</div>
+</footer>
+ 
+</body>
+</html>
+<!-- Localized -->

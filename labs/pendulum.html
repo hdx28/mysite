@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>Tick, tock.</title>
+<style type="text/css">@-webkit-keyframes swinging {
+			0% {
+				-webkit-transform: rotate(-45deg);
+			}	50% {
+				-webkit-transform: rotate(45deg);
+			}
+			
+			100% {
+				-webkit-transform: rotate(-45deg);
+			}
+		}
+		
+		body {
+			text-align: center;
+			background: #444;
+		}
+		
+		.pendulum {
+			margin: 0 auto;
+			position: relative;
+			background: #ddd;
+			color: #333;
+			width: 128px;
+			height: 128px;
+			line-height: 128px;
+			-webkit-border-radius: 1000px;
+			margin: 0 0 0 -53px;
+			font-weight: bold;
+			-webkit-box-shadow: 0 0 20px rgba(0,0,0,.3);
+		}
+		
+		.container {
+			padding-top: 200px;
+			-webkit-animation: swinging 3s infinite ease-in-out;
+			background: #ddd;
+			width: 20px;
+			-webkit-transform-origin: top;
+			margin: 0 auto;
+			-webkit-border-radius: 1000px;
+			-webkit-box-shadow: 0 0 20px rgba(0,0,0,.3);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="pendulum">
+			tick, tock.
+		</div>
+	</div>
+</body>
+</html>
+<!-- Localized -->
